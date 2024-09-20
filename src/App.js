@@ -1,24 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import Accordian from './components/Accordian';
+import Calculator from './components/Calculator';
+import Carousel from './components/Carousel';
+import Counter from './components/Counter';
+import CustomBackgroundColor from './components/CustomBackgroundColor';
+import DarkLightMode from './components/DarkLightMode';
+import DataFetching from './components/DataFetching';
+import DragDrop from './components/DragDrop';
+import MachineCode from './components/MachineCode';
+import PasswordGenerator from './components/PasswordGenerator';
+import SearchFilter from './components/SearchFilter';
+import Stopwatch from './components/Stopwatch';
+import TodoList from './components/TodoList';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+       {/* <Counter />
+       <CustomBackgroundColor />
+       <Stopwatch />
+       <DarkLightMode />
+       <SearchFilter />
+       <DataFetching />
+       <Carousel />
+       <PasswordGenerator />
+       <DragDrop /> 
+       <TodoList />
+       <Accordian />
+       <Calculator />*/}
+       <MachineCode />
+    </div> 
   );
 }
 
