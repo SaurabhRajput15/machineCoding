@@ -1,6 +1,9 @@
 /* .todo-list */
 *{
   text-align: center;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .input-field{
@@ -51,4 +54,17 @@
 .light-mode{
   background-color: #FFFFFF;
   color: black;
+}
+
+
+/* carousel */
+
+.carousel{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel img{
+  width: 400px;
 }

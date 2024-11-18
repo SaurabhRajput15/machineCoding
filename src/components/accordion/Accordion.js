@@ -1,7 +1,7 @@
 import React from "react";
-import AccordianFun from "./AccordianFun";
+import AccordionFun from "./AccordionFun";
 
-const Accordian = () => {
+const Accordion = () => {
     const accordionData = [
         { title: 'Accordion 1', content: 'This is the content of accordion 1.' },
         { title: 'Accordion 2', content: 'This is the content of accordion 2.' },
@@ -10,11 +10,10 @@ const Accordian = () => {
 
     return(
         <div>
-          <h1>React Accordion</h1>
           <ul>
             {
-                accordionData.map((item, index) => (
-                    <AccordianFun key={index} title={item.title} content={item.content} />
+                accordionData.map((item) => (
+                    <AccordionFun title={item.title} content={item.content} key={item.title}/>
                 ))
             }
           </ul>
@@ -22,4 +21,4 @@ const Accordian = () => {
     )
 }
 
-export default Accordian
+export default Accordion

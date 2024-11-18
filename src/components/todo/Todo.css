@@ -1,0 +1,24 @@
+.todo-list ul{
+    
+}
+
+.text-input input{
+    margin-top: 5px;
+    padding:5px;
+    width: 300px;
+}
+
+.text-input button{
+    padding: 5px;
+}
+
+.todo-list ul li{
+   border: 1px solid black;
+   width: 27%;
+   margin: auto;
+   margin-top: 10px;
+   padding:10px;
+   border-radius: 2px;
+   display: flex;
+   justify-content: space-between;
+}
