@@ -1,78 +1,108 @@
 import React, { useState } from 'react';
-import "./Todo.css";
 
 const Todo = () => {
-  const [todo, setTodo] = useState("");
-  const [todoList, setTodoList] = useState([]);
-  const [editingIndex, setEditingIndex] = useState(null);
-  const [editValue, setEditValue] = useState("");
+  const [todos, setTodos] = useState('');
+  const [todoList, setTodolist] = useState([
+    'Wake up at 6 AM',
+    'Go for a walk',
+    'Prepare breakfast',
+  ]);
+  const [isEditing, setIsEditing] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(null);
+  const [editText, setEditText] = useState('');
 
-  // Function to add a new task
-  const addTask = () => {
-    if (todo.trim()) {
-      setTodoList([...todoList, todo]);
-      setTodo(""); // Clear input after adding task
-    }
+  const addTodos = () => {
+    if (todos.trim() === '') return; // Prevent adding empty todos
+    setTodolist([...todoList, todos.trim()]);
+    setTodos('');
   };
 
-  // Function to delete a task
-  const deleteItem = (index) => {
-    const deleteValue = todoList.filter((_, i) => i !== index);
-    setTodoList(deleteValue);
+  const deleteTodoHandler = (indexToDelete) => {
+    const updatedList = todoList.filter((_, index) => index !== indexToDelete);
+    setTodolist(updatedList);
   };
 
-  // Function to enable editing mode
-  const enableEdit = (index) => {
-    setEditingIndex(index);
-    setEditValue(todoList[index]); // Set initial value for edit
+  const startEditing = (index) => {
+    setIsEditing(true);
+    setCurrentIndex(index);
+    setEditText(todoList[index]); // Set the current todo text for editing
   };
 
-  // Function to update a task
-  const updateItem = () => {
-    const updatedList = todoList.map((item, i) =>
-      i === editingIndex ? editValue : item
-    );
-    setTodoList(updatedList);
-    setEditingIndex(null); // Exit editing mode
-    setEditValue(""); // Clear edit input
+  const updateTodoHandler = () => {
+    if (editText.trim() === '') return; // Prevent empty updates
+    const updatedList = [...todoList];
+    updatedList[currentIndex] = editText; // Update the specific todo
+    setTodolist(updatedList);
+    setIsEditing(false); // Exit editing mode
+    setCurrentIndex(null);
+    setEditText('');
   };
 
   return (
     <div>
-      <h3>Daily Task</h3>
-      <div className="text-input">
+      <h1 className="font-bold text-lg">Todo</h1>
+      <div>
         <input
           type="text"
-          value={todo}
-          onChange={(e) => setTodo(e.target.value)}
+          value={todos}
+          onChange={(e) => setTodos(e.target.value)}
+          className="border border-gray-400 w-[30%] rounded-sm py-1 mt-5"
+          placeholder="Add your todos"
         />
-        <button onClick={addTask}>Add Task</button>
+        <button
+          className="bg-green-500 p-1 px-2 mx-2 rounded-md text-white font-semibold"
+          onClick={addTodos}
+        >
+          Add Todos
+        </button>
       </div>
-      <div className="todo-list">
-        <ul>
-          {todoList.map((item, index) => (
-            <li key={index} className="todo-list-item">
-              {editingIndex === index ? (
-                <div>
+      <div className="flex justify-center flex-row mt-4">
+        {
+          <ul>
+            {todoList.map((todo, index) => (
+              <li
+                className="border border-gray-500 w-96 text-center mr-32 mt-2 py-1 text-gray-500 font-semibold rounded-sm flex justify-between px-1"
+                key={index}
+              >
+                {isEditing && currentIndex === index ? (
                   <input
                     type="text"
-                    value={editValue}
-                    onChange={(e) => setEditValue(e.target.value)}
+                    value={editText}
+                    onChange={(e) => setEditText(e.target.value)}
+                    className="border border-gray-400 rounded-sm py-1 px-2 w-[70%]"
                   />
-                  <button onClick={updateItem}>Update</button>
-                </div>
-              ) : (
+                ) : (
+                  todo
+                )}
                 <div>
-                  <h4>{item}</h4>
-                  <div>
-                    <button onClick={() => enableEdit(index)}>Edit</button>
-                    <button onClick={() => deleteItem(index)}>Delete</button>
-                  </div>
+                  {isEditing && currentIndex === index ? (
+                    <button
+                      className="mr-2 bg-blue-500 text-white p-1 px-2 rounded-md"
+                      onClick={updateTodoHandler}
+                    >
+                      Save
+                    </button>
+                  ) : (
+                    <>
+                      <button
+                        className="mr-2"
+                        onClick={() => deleteTodoHandler(index)}
+                      >
+                        ❌
+                      </button>
+                      <button
+                        className="bg-yellow-500 text-white p-1 px-2 rounded-md"
+                        onClick={() => startEditing(index)}
+                      >
+                        ✏
+                      </button>
+                    </>
+                  )}
                 </div>
-              )}
-            </li>
-          ))}
-        </ul>
+              </li>
+            ))}
+          </ul>
+        }
       </div>
     </div>
   );

@@ -1,40 +1,45 @@
-import './App.css';
 import Accordion from './components/accordion/Accordion';
-import Calculator from './components/Calculator';
-import Carousel from './components/Carousel';
 import Counter from './components/counter/Counter';
 import CustomBackgroundColor from './components/customBackground/CutomBackgroundColor';
 import DarkLightMode from './components/darkLightMode/DarkLightMode';
-import DragDrop from './components/DragDrop';
 import DataFetching from './components/fetchData/DataFetching';
+import ImageSlider from './components/image-slider/ImageSlider';
+import InfiniteScroll from './components/infiniteScroll/InfiniteScroll';
 import MachineCode from './components/MachineCode';
+import Pagination from './components/pagination/Pagination';
 import PasswordGenerator from './components/passwordGenerator/PasswordGenerator';
 import SearchFilter from './components/searchFilter/SearchFilter';
+import ShowHidePassword from './components/ShowHide/ShowHidePassword';
 import Stopwatch from './components/Stopwatch/Stopwatch';
+import TicTacToe from './components/tic,tac,toe/TicTacToe';
 import Todo from './components/todo/Todo';
-import TodoList from './components/TodoList';
 
 function App() {
   return (
     <div className="App">
       {/*
-       <Carousel />
        <DragDrop /> 
-       <TodoList />
        <Calculator />
        <TicTacToe />  
        <Counter /> 
-       <Stopwatch /> 
        <CustomBackgroundColor /> 
        <DarkLightMode /> 
+       <DataFetching />   
+       <Practice /> 
+       <InfiniteScroll /> 
+       <Stopwatch /> 
+       <Accordion /> 
+       <SearchFilter /> 
+       <Pagination />   
+       <Todo /> 
+       <MachineCode /> 
+       <ShowHidePassword /> 
        <Accordion /> 
        <PasswordGenerator /> 
-       <DataFetching /> 
-       <Todo />  
-       <SearchFilter />  */}
-
-       <MachineCode />
-       
+       <ImageSlider /> 
+       <Accordion /> 
+       <TicTacToe />*/}
+       <Todo />
 
     </div> 
   );
