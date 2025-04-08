@@ -11,20 +11,20 @@ const ImageSlider = () => {
 
   const [active, setActive] = useState(0)
 
-  useEffect(() => {
-    let timer = setInterval(() => {
-      loadNextImage()
-    }, 3000)
+  // useEffect(() => {
+  //   let timer = setInterval(() => {
+  //     loadNextImage()
+  //   }, 3000)
 
-    return () => clearInterval(timer)
-  }, [])
+  //   return () => clearInterval(timer)
+  // }, [])
 
   const loadNextImage = () => {
     setActive(active => (active + 1) % images.length)
   }
 
   const loadPrevImage = () => {
-    setActive((active) => (active - 1 < 0 ? images.length - 1 : active -1))
+    setActive((active) => (active - 1 < 0 ? images.length - 1 : active - 1))
   }
 
   return (
