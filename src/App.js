@@ -41,8 +41,7 @@ function App() {
        <Practice /> 
        <InfiniteScroll /> 
        <Stopwatch /> 
-       <SearchFilter /> 
-       <Pagination />   
+       <SearchFilter />   
        <Todo /> 
        <ShowHidePassword />  
        <PasswordGenerator />  
@@ -54,8 +53,9 @@ function App() {
        <MachineCode /> 
        <About lang={lang}/> 
        <Accordion /> 
-       <MachineCode /> */}
-       <Body /> //Shimmer Ui
+       <MachineCode /> 
+       <Body /> //Shimmer Ui  */}
+       <Pagination /> 
     </div> 
   );
 }
