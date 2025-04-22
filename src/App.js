@@ -5,8 +5,7 @@ import CustomBackgroundColor from './components/customBackground/CutomBackground
 import DarkLightMode from './components/darkLightMode/DarkLightMode';
 import DataFetching from './components/fetchData/DataFetching';
 import ImageSlider from './components/image-slider/ImageSlider';
-import InfiniteScroll from './components/infiniteScroll/InfiniteScroll';
-import MachineCode from './components/MachineCode';
+import MachineCode from './components/machineCode/MachineCode';
 import About from './components/multiLanguage/About';
 import Pagination from './components/pagination/Pagination';
 import PasswordGenerator from './components/passwordGenerator/PasswordGenerator';
@@ -16,6 +15,7 @@ import Stopwatch from './components/Stopwatch/Stopwatch';
 import TicTacToe from './components/tic,tac,toe/TicTacToe';
 import Todo from './components/todo/Todo';
 import SearchUi from './components/search-ui/SearchUi';
+import Body from './components/shimmerUi/Body';
 
 function App() {
   const [lang, setLang] = useState("en")
@@ -49,12 +49,13 @@ function App() {
        <TicTacToe /> 
        <Todo /> 
        <ImageSlider /> 
-       <InfiniteScroll /> 
-       <Accordion />  
-       <About lang={lang}/> 
-       <SearchUi /> */} 
+       <SearchUi />     
+       <ShowHidePassword /> 
        <MachineCode /> 
-
+       <About lang={lang}/> 
+       <Accordion /> 
+       <MachineCode /> */}
+       <Body /> //Shimmer Ui
     </div> 
   );
 }

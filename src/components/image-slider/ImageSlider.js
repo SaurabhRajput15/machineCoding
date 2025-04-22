@@ -29,7 +29,7 @@ const ImageSlider = () => {
 
   return (
     <div>
-      <div className='p-2 m-2 flex justify-center items-center'>
+      <div>
         <img 
           onClick={loadPrevImage}
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR080qTd6YL4kMlxrppROhR2zyNnTxnWekXig&s" alt="left-arrow"

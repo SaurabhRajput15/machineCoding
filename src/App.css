@@ -68,4 +68,15 @@
   width: 400px;
 }
 
+.dark-mode{
+  color: white;
+  background-color: black;
+}
+
+.light-mode{
+  color: black;
+  background-color: white;
+}
+
+
 
