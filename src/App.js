@@ -47,15 +47,15 @@ function App() {
        <PasswordGenerator />  
        <TicTacToe /> 
        <Todo /> 
-       <ImageSlider /> 
-       <SearchUi />     
+       <ImageSlider />     
        <ShowHidePassword /> 
        <MachineCode /> 
        <About lang={lang}/> 
        <Accordion /> 
        <MachineCode /> 
-       <Body /> //Shimmer Ui  */}
-       <Pagination /> 
+       <Body /> //Shimmer Ui  
+       <Pagination /> */}
+       <SearchUi />
     </div> 
   );
 }
