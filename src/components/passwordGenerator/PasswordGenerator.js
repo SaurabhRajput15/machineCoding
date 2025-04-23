@@ -1,96 +1,73 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 const PasswordGenerator = () => {
-    const [password, setPassword] = useState("")
-    const [length, setLength] = useState(8)
-    const [includeUppercase, setIncludeUppercase] = useState(false)
-    const [includeNumbers, setIncludeNumbers] = useState(false)
-    const [includeSymbols, setIncludeSymbols] = useState(false)
+  const [length, setLength] = useState(12);
+  const [includeUpper, setIncludeUpper] = useState(true);
+  const [includeLower, setIncludeLower] = useState(true);
+  const [includeNumber, setIncludeNumber] = useState(true);
+  const [includeSymbol, setIncludeSymbol] = useState(false);
+  const [password, setPassword] = useState("");
 
-    const generatePassword = () => {
-        let lowercaseChars = "abcdefghijklmnopqrstuvwxyz"
-        let uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        let numberChars = "0123456789"
-        let symbolChars = "!@#$%^&*()_+[]{}<>?"
+  const generatePassword = () => {
+    const upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const lower = "abcdefghijklmnopqrstuvwxyz";
+    const numbers = "0123456789";
+    const symbols = "!@#$%^&*()_+[]{}";
 
-        let characterSet = lowercaseChars
+    let chars = "";
+    if (includeUpper) chars += upper;
+    if (includeLower) chars += lower;
+    if (includeNumber) chars += numbers;
+    if (includeSymbol) chars += symbols;
 
-        if(includeUppercase){
-            characterSet += uppercaseChars
-        }
-
-        if(includeNumbers){
-            characterSet += numberChars
-        }
-
-        if(includeSymbols){
-            characterSet += symbolChars
-        }
-
-        let generatedPassword = ""
-        for(let i = 0; i < length; i++){
-            const randomIndex = Math.floor(Math.random() * characterSet.length)
-            generatedPassword += characterSet[randomIndex]
-        }
-       setPassword(generatedPassword)
+    if (chars.length === 0) {
+      alert("Please select at least one character type.");
+      return;
     }
 
-    const handleLengthChange = (e) => {
-        setLength(Number(e.target.value))
+    let newPassword = "";
+    for (let i = 0; i < length; i++) {
+      newPassword += chars.charAt(Math.floor(Math.random() * chars.length));
     }
 
-    return(
-        <div>
-           <h1>Password Generator</h1>
+    setPassword(newPassword);
+  };
 
-           <label>
-            Password Length
-              <input 
-                type="number"
-                min={4}
-                max={16}
-                value={length}
-                onChange={handleLengthChange}
-              />
-           </label>
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(password);
+    alert("Password copied to clipboard!");
+  };
 
-           <label>
-            <input
-             type="checkbox"
-             checked={includeUppercase}
-             onChange={() => setIncludeUppercase(!includeUppercase)}
-            />
-            Include Uppercase Letters
-           </label>
+  return (
+    <div style={{ width: '300px', margin: '50px auto', padding: '20px', border: '1px solid gray', borderRadius: '8px' }}>
+      <h2>Password Generator 🔐</h2>
+      <label>Password Length: {length}</label>
+      <input type="range" min="4" max="20" value={length} onChange={(e) => setLength(e.target.value)} style={{ width: "100%" }} />
+      
+      <div>
+        <input type="checkbox" checked={includeUpper} onChange={() => setIncludeUpper(!includeUpper)} /> Uppercase<br />
+        <input type="checkbox" checked={includeLower} onChange={() => setIncludeLower(!includeLower)} /> Lowercase<br />
+        <input type="checkbox" checked={includeNumber} onChange={() => setIncludeNumber(!includeNumber)} /> Numbers<br />
+        <input type="checkbox" checked={includeSymbol} onChange={() => setIncludeSymbol(!includeSymbol)} /> Symbols
+      </div>
 
-           <label>
-             <input 
-                type="checkbox"
-                checked={includeNumbers}
-                onChange={() => setIncludeNumbers(!includeNumbers)}
-             />
-             Include Numbers Letters
-           </label>
+      <div style={{textAlign:"center"}}>
+       <button 
+         onClick={generatePassword} 
+         style={{ marginTop: "10px", padding: "5px 10px", cursor: "pointer", backgroundColor:"goldenrod",   borderRadius:"2px", fontWeight:"bold", color:"white"}}
+       >
+         Generate Password
+       </button>
+      </div>
 
-           <label>
-             <input 
-                type="checkbox"
-                checked={includeSymbols}
-                onChange={() => setIncludeSymbols(!includeSymbols)}
-             />
-             Include Symbols Letters
-           </label>
-
-           <button onClick={generatePassword}>Generate Password</button>
-
-           {password && (
-             <div>
-              <h2>Your Generated Password:</h2>
-              <p>{password}</p>
-             </div>
-           )}
+      {password && (
+        <div style={{ marginTop: "15px", textAlign:"center"}}>
+          <input type="text" readOnly value={password} style={{ width: "100%", marginBottom: "5px", textAlign:"center", fontSize:"23px", color:"green", fontWeight:"bolder"}} />
+          <button onClick={copyToClipboard} style={{ padding: "5px 10px", cursor: "pointer" }}>Copy</button>
         </div>
-    )
-}
+      )}
+    </div>
+  );
+};
 
-export default PasswordGenerator
+export default PasswordGenerator;

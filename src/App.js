@@ -43,8 +43,7 @@ function App() {
        <Stopwatch /> 
        <SearchFilter />   
        <Todo /> 
-       <ShowHidePassword />  
-       <PasswordGenerator />  
+       <ShowHidePassword />   
        <TicTacToe /> 
        <Todo /> 
        <ImageSlider />     
@@ -52,10 +51,12 @@ function App() {
        <MachineCode /> 
        <About lang={lang}/> 
        <Accordion /> 
-       <MachineCode /> 
        <Body /> //Shimmer Ui  
-       <Pagination /> */}
-       <SearchUi />
+       <Pagination /> 
+       <SearchUi /> 
+       <MachineCode /> */} 
+       <PasswordGenerator /> 
+       
     </div> 
   );
 }
