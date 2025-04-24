@@ -16,6 +16,7 @@ import TicTacToe from './components/tic,tac,toe/TicTacToe';
 import Todo from './components/todo/Todo';
 import SearchUi from './components/search-ui/SearchUi';
 import Body from './components/shimmerUi/Body';
+import OtpInput from './components/otpInput/OtpInput';
 
 function App() {
   const [lang, setLang] = useState("en")
@@ -53,9 +54,10 @@ function App() {
        <Accordion /> 
        <Body /> //Shimmer Ui  
        <Pagination /> 
-       <SearchUi /> 
-       <MachineCode /> */} 
-       <PasswordGenerator /> 
+       <SearchUi />   
+       <MachineCode /> 
+       <PasswordGenerator /> */}
+       <OtpInput />
        
     </div> 
   );

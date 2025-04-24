@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 const PasswordGenerator = () => {
   const [length, setLength] = useState(12);
-  const [includeUpper, setIncludeUpper] = useState(true);
+  const [includeUpper, setIncludeUpper] = useState(false);
   const [includeLower, setIncludeLower] = useState(true);
-  const [includeNumber, setIncludeNumber] = useState(true);
+  const [includeNumber, setIncludeNumber] = useState(false);
   const [includeSymbol, setIncludeSymbol] = useState(false);
   const [password, setPassword] = useState("");
 
