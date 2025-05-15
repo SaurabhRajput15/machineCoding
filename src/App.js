@@ -17,6 +17,8 @@ import Todo from './components/todo/Todo';
 import SearchUi from './components/search-ui/SearchUi';
 import Body from './components/shimmerUi/Body';
 import OtpInput from './components/otpInput/OtpInput';
+import CounterTwo from './components/counter/CounterTwo';
+import TodoList from './components/todo/TodoList';
 
 function App() {
   const [lang, setLang] = useState("en")
@@ -49,15 +51,16 @@ function App() {
        <Todo /> 
        <ImageSlider />     
        <ShowHidePassword /> 
-       <MachineCode /> 
-       <About lang={lang}/> 
        <Accordion /> 
        <Body /> //Shimmer Ui  
-       <Pagination /> 
-       <SearchUi />   
+       <Pagination />    
+       <PasswordGenerator /> 
+       <OtpInput /> 
        <MachineCode /> 
-       <PasswordGenerator /> */}
-       <OtpInput />
+       <About lang={lang}/> 
+       <SearchUi /> 
+       <CounterTwo /> */} 
+       <TodoList />
        
     </div> 
   );

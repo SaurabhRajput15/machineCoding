@@ -78,5 +78,8 @@
   background-color: white;
 }
 
+.strikeThrough{
+  text-decoration: line-through;
+}
 
 
