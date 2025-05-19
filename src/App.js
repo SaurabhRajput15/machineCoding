@@ -19,6 +19,7 @@ import Body from './components/shimmerUi/Body';
 import OtpInput from './components/otpInput/OtpInput';
 import CounterTwo from './components/counter/CounterTwo';
 import TodoList from './components/todo/TodoList';
+import ChipsInput from './components/chips/ChipsInput';
 
 function App() {
   const [lang, setLang] = useState("en")
@@ -59,8 +60,9 @@ function App() {
        <MachineCode /> 
        <About lang={lang}/> 
        <SearchUi /> 
-       <CounterTwo /> */} 
-       <TodoList />
+       <CounterTwo /> 
+       <TodoList /> */} 
+       <ChipsInput />
        
     </div> 
   );
